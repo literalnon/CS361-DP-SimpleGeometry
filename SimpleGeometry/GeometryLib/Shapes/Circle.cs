@@ -14,10 +14,19 @@ namespace GeometryLib.Shapes
     {
         public double Radius { get; }
 
-        public Circle(double radius)
+        public Circle(double r)
         {
-            Debug.Assert(radius > 0, "radius > 0");
-            Radius = radius;
+            Debug.Assert(r > 0, "radius > 0");
+            Radius = r;
+        }
+        public override double Area()
+        {
+            return Radius * Radius * Math.PI;
+        }
+        public override String Print()
+        {
+            double area = this.Area();
+            return String.Format("Circle: radius = {0}, area = {1}", Radius, area);
         }
     }
 }

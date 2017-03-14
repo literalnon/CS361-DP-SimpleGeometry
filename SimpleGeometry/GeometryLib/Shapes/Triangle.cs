@@ -26,5 +26,15 @@ namespace GeometryLib.Shapes
             Side2 = side2;
             Side3 = side3;
         }
+        public override double Area()
+        {
+            var p = (Side1 + Side2 + Side3) / 2;
+            return Math.Sqrt(p * (p - Side1) * (p - Side2) * (p - Side3));
+        }
+        public override String Print()
+        {
+            double area = this.Area();
+            return String.Format("Triangle: sides: {0} {1} {2}, area = {3}", Side1, Side2, Side3, area);
+        }
     }
 }
